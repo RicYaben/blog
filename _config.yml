@@ -64,11 +64,7 @@ plugins:
 author: &ric
   name: Ricardo Yaben
   avatar: "/assets/images/bio.png"
-  bio: |-
-    **(He/Him)**
-    GSoC 2022 Contributor
-    MSc in Cyber Security
-    Cyber Security Consultant at EY
+  bio: "**(He/Him)**\nGSoC 2022 Contributor\nMSc in Cyber Security\nCyber Security Consultant at EY"
   links: &links
     - label: "LinkedIn"
       icon: "fab fa-fw fa-linkedin"
