@@ -56,22 +56,21 @@ plugins:
   - jekyll-include-cache
 
 author:
-  name: "Ricardo Yaben"
+  name: "Ricardo Yaben (He/Him)"
   avatar: "/assets/images/bio.png"
-  bio: "Cyber Security wannabe"
+  bio: >-
+    GSoC 2022 Contributor | MSc in Cyber Security
+    Cyber Security Consultant at EY
   links:
-    #    - label: "Website"
-    #      icon: "fas fa-fw fa-link"
-    #      url: "https://"
-    - label: "Twitter"
-      icon: "fab fa-fw fa-twitter-square"
-      url: "https://twitter.com/@RYaben"
+    - label: "LinkedIn"
+      icon: "fab fa-fw fa-linkedin"
+      url: "https://www.linkedin.com/in/ricardo-yaben-lopezosa-aa63a2159"
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
       url: "https://github.com/ricyaben"
-    - label: "Instagram"
-      icon: "fab fa-fw fa-instagram"
-      url: "https://instagram.com/ric.yaben"
+    - label: "Twitter"
+      icon: "fab fa-fw fa-twitter-square"
+      url: "https://twitter.com/@RYaben"
 
 footer:
   links:
