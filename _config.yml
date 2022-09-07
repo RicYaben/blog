@@ -62,11 +62,12 @@ plugins:
   - jekyll-include-cache
 
 author: &ric
-  name: "Ricardo Yaben (He/Him)"
+  name: Ricardo Yaben
   avatar: "/assets/images/bio.png"
-  bio: >-
-    GSoC 2022 Contributor |
-    MSc in Cyber Security |
+  bio: |-
+    **(He/Him)**
+    GSoC 2022 Contributor
+    MSc in Cyber Security
     Cyber Security Consultant at EY
   links: &links
     - label: "LinkedIn"
