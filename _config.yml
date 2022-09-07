@@ -14,13 +14,19 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 title: RIoTPoT GSoC 2022
-email:
+subtitle: Version 1.0
+email: ricardoyaben@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
   Blogpost for my experience with RIoTPoT as contributor for GSoC 2022 in collaboration with the HoneyNet project
-twitter_username: ryaben
+twitter_username: ric.yaben
 github_username: RicYaben
 minimal_mistakes_skin: dark
 search: true
+
+# Meta
+name: Ricardo Yaben
+url: "https://ryaben17.github.io/riotpot-gsoc_2022"
+repository: aau-network-security/riotpot/tree/gsoc_2022
 
 # Build settings
 markdown: kramdown
@@ -55,13 +61,14 @@ plugins:
   - jemoji
   - jekyll-include-cache
 
-author:
+author: &ric
   name: "Ricardo Yaben (He/Him)"
   avatar: "/assets/images/bio.png"
   bio: >-
-    GSoC 2022 Contributor | MSc in Cyber Security
+    GSoC 2022 Contributor |
+    MSc in Cyber Security |
     Cyber Security Consultant at EY
-  links:
+  links: &links
     - label: "LinkedIn"
       icon: "fab fa-fw fa-linkedin"
       url: "https://www.linkedin.com/in/ricardo-yaben-lopezosa-aa63a2159"
@@ -73,16 +80,7 @@ author:
       url: "https://twitter.com/@RYaben"
 
 footer:
-  links:
-    - label: "Twitter"
-      icon: "fab fa-fw fa-twitter-square"
-      url: "https://twitter.com/"
-    - label: "GitHub"
-      icon: "fab fa-fw fa-github"
-      url: "https://github.com/"
-    - label: "Instagram"
-      icon: "fab fa-fw fa-instagram"
-      url: "https://instagram.com/"
+  links: *links
 
 defaults:
   # _posts
@@ -96,6 +94,8 @@ defaults:
       comments: true
       share: true
       related: true
+      author: Ricardo Yaben
+
   # _pages
   - scope:
       path: "_pages"
@@ -103,6 +103,18 @@ defaults:
     values:
       layout: single
       author_profile: true
+      author: Ricardo Yaben
+
+  # _docs
+  - scope:
+      path: "_docs"
+      type: pages
+    values:
+      layout: single
+      toc: true
+      sidebar:
+        nav: "docs"
+      author: Ricardo Yaben
 
 category_archive:
   type: liquid

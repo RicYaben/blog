@@ -1,4 +1,6 @@
 main:
+  - title: "Documentation"
+    url: /docs/
   - title: "Posts"
     url: /posts/
   - title: "Categories"
@@ -7,5 +9,36 @@ main:
     url: /tags/
   - title: "About"
     url: /about/
-  - title: "Documentation"
-    url: /documentation/
+
+docs:
+  - title: Getting Started
+    children:
+      - title: Quick-Start Guide
+        url: /docs/quick-start-guide/
+      - title: Installation
+        url: /docs/installation/
+
+  - title: Architecture
+    children:
+      - title: System Architecture
+        url: /docs/architecture/
+      - title: Design
+        url: /docs/design/
+      - title: Requirements
+        url: /docs/requirements/
+
+  - title: Customization
+    children:
+      - title: Configuration
+        url: /docs/configuration/
+
+  - title: Other
+    children:
+      - title: Common Questions
+        url: /docs/common-questions/
+      - title: Known Issues
+        url: /docs/issues/
+      - title: Roadmap
+        url: /docs/roadmap/
+      - title: Changelog
+        url: /docs/changelog/
