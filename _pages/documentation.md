@@ -1,6 +1,6 @@
 ---
 title: Documentation
-permalink: /documentation/
+permalink: /docs/
 sidebar:
   nav: docs
 ---
