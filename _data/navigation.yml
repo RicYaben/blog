@@ -1,44 +1,47 @@
 main:
-  - title: "Documentation"
-    url: /docs/
-  - title: "Posts"
+  - title: Portfolio
+    url: /portfolio/
+  - title: Publications
+    url: /publications/
+  - title: Posts
     url: /posts/
-  - title: "Categories"
-    url: /categories/
-  - title: "Tags"
-    url: /tags/
-  - title: "About"
+  - title: About
     url: /about/
 
-docs:
+riotpot:
+  - title: RIoTPoT
+    children:
+      - title: Summary
+        url: /portfolio/riotpot/
+
   - title: Getting Started
     children:
       - title: Quick-Start Guide
-        url: /docs/quick-start-guide/
+        url: /projects/riotpot/quick-start-guide/
       - title: Installation
-        url: /docs/installation/
+        url: /projects/riotpot/installation/
 
   - title: Architecture
     children:
       - title: System Architecture
-        url: /docs/architecture/
+        url: /projects/riotpot/architecture/
       - title: Design
-        url: /docs/design/
+        url: /projects/riotpot/design/
       - title: Requirements
-        url: /docs/requirements/
+        url: /projects/riotpot/requirements/
 
   - title: Customization
     children:
       - title: Configuration
-        url: /docs/configuration/
+        url: /projects/riotpot/configuration/
 
   - title: Other
     children:
       - title: Common Questions
-        url: /docs/common-questions/
+        url: /projects/riotpot/common-questions/
       - title: Known Issues
-        url: /docs/issues/
+        url: /projects/riotpot/issues/
       - title: Roadmap
-        url: /docs/roadmap/
+        url: /projects/riotpot/roadmap/
       - title: Changelog
-        url: /docs/changelog/
+        url: /projects/riotpot/changelog/

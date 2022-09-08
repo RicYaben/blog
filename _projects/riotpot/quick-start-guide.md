@@ -1,6 +1,7 @@
 ---
 title: Quick-Start Guide
-permalink: /docs/quick-start-guide/
+sidebar:
+  nav: riotpot
 ---
 
 Coming soon!

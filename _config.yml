@@ -13,11 +13,13 @@
 # you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
-title: RIoTPoT GSoC 2022
-subtitle: Version 1.0
+title: Ricardo Yaben
+subtitle: Cyber Security Adventures
 email: ricardoyaben@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
-  Blogpost for my experience with RIoTPoT as contributor for GSoC 2022 in collaboration with the HoneyNet project
+  Blogpost for my experience as a Cyber Security MSc.
+  Contains information in projects such as RIoTPoT, as part of my participation in the GSoC 2022 as a Contributor
+  in collaboration with the Honeynet project.
 twitter_username: ric.yaben
 github_username: RicYaben
 minimal_mistakes_skin: dark
@@ -27,7 +29,7 @@ search: true
 name: Ricardo Yaben
 url: "https://ryaben17.github.io"
 baseurl: "/riotpot-gsoc_2022"
-repository: aau-network-security/riotpot/tree/gsoc_2022
+repository: aau-network-security/riotpot
 
 # Build settings
 markdown: kramdown
@@ -40,6 +42,7 @@ timezone: # https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 
 include:
   - _pages
+  - .htaccess
 
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list
@@ -82,6 +85,14 @@ author: &ric
 footer:
   links: *links
 
+collections:
+  portfolio:
+    output: true
+    permalink: /:collection/:path/
+  projects:
+    output: true
+    permalink: /:collection/:path/
+
 defaults:
   # _posts
   - scope:
@@ -105,15 +116,21 @@ defaults:
       author_profile: true
       author: Ricardo Yaben
 
-  # _docs
+  # _portfolio
   - scope:
-      path: "_docs"
-      type: pages
+      path: "_portfolio"
+      type: portfolio
+    values:
+      layout: single
+      share: true
+
+  # _projects
+  - scope:
+      path: _projects
+      type: projects
     values:
       layout: single
       toc: true
-      sidebar:
-        nav: "docs"
       author: Ricardo Yaben
 
 category_archive:
