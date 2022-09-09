@@ -2,6 +2,7 @@
 title: "RIoTPot: A Shapeshifting Honeypot"
 author_profile: true
 toc: true
+mermaid: true
 #sidebar:
 #  nav: riotpot
 
@@ -44,8 +45,21 @@ gallery-api:
     image_path: /assets/gsoc-2022/riotpot-api-3.png
     alt: "API Proxy Expoint New Proxy With Service"
     title: "API Proxy Expoint New Proxy With Service"
----
 
+gallery-ui:
+  - url: /assets/gsoc-2022/ui-instances.png
+    image_path: /assets/gsoc-2022/ui-instances.png
+    alt: "Instances"
+    title: "Instances"
+  - url: /assets/gsoc-2022/ui-profiles.png
+    image_path: /assets/gsoc-2022/ui-profiles.png
+    alt: "Profiles"
+    title: "Profiles"
+  - url: /assets/gsoc-2022/ui-services.png
+    image_path: /assets/gsoc-2022/ui-services.png
+    alt: "Services"
+    title: "Services"
+---
 # 1. Project Description
 
 ## 1.1 Organisation
@@ -62,7 +76,7 @@ Thanks to my mentors!
 - [Emmanouil Vasilomanolakis](https://www.linkedin.com/in/emmanouil-vasilomanolakis-202a2355)
 - [Shreyas Srinivasa](https://www.linkedin.com/in/shreyas-srinivasa-47038b13)
 
-# 1.3 Links
+## 1.3 Links
 
 - GitHub Repository: https://github.com/aau-network-security/riotpot
   - Branch: [gsoc_2022](https://github.com/aau-network-security/riotpot/tree/gsoc_2022)
@@ -130,7 +144,7 @@ The following gallery contains images of the six core functions of the UI.
 ## 2.3 Implementation
 
 Due to the breaking changes introduced in our design, the first point of action was to map the application processes, and identify elements that we could utilise.
-We spent a great deal of resources to refactor and document the code in place, and pacing our next steps.
+We spent a great deal of resources to refactor and document the code in place ([#62](https://github.com/aau-network-security/riotpot/issues/62)), and pacing our next steps.
 During the first half of the project we dedicated our efforts to the internal implementation of the honeypot.
 We discuss this process in more detail in [Section 2.3.1](#231-shaping-the-honeypot2.3.1-shaping-the-honeypot).
 The second part of the project focused on the implementation of the UI, as described in [Section 2.3.2](#232-ui).
@@ -141,7 +155,7 @@ From the core, we only maintained the plugin honeypot services that provide low 
 Furthermore, we identified three streams for enhancement: **Services, Proxies and the new API**.
 Finally, we settle on the **observer** and **factory** patterns to manage the state of the services and proxies globaly, while using a **REST API** to communicate with the UI.
 
-**A.** First, we included a standard library to standarise the logging output.
+**A.** First, we included a standard library to standarise the logging output ([#53](https://github.com/aau-network-security/riotpot/issues/53)).
 Due to the requirements of honeypots in terms of bandwidth and resources, we decided to use a logger with zero memory allocation. Our choice was [zerolog](https://github.com/rs/zerolog), an open source logger for JSON output.
 
 **B.** Then, we developed a similar manager or "factory" for both `services` and `proxies` that provides an interface to perform insert, deletion and filtering.
@@ -173,7 +187,7 @@ func (pe *AbstractProxy) Stop() (err error) {
 ```
 
 2. **To include middlewares that interact with the transiting connections from attacker to service.**
-   Proxy middlewares were created to intercept connections from attackers to the honeypot, and take further actions such as dropping the connection, upgrading or fingerprinting the attacker.
+   Proxy middlewares were created to intercept connections from attackers to the honeypot, and take further actions such as dropping the connection, upgrading or fingerprinting the attacker ([#64](https://github.com/aau-network-security/riotpot/issues/64)).
    For reference, the connection becomes `attacker -> proxy -> middleware -> service`
    The implementation has been limited to create the structure necessary for developing these middlewares, but no middleware was introduced during the project.
 
@@ -190,8 +204,8 @@ go func() {
 ```
 
 3. **To handle both TCP and UDP connections.**
-   Due to the variety of protocols available in common devices, the honeypot must handle both TCP and UDP connections. UDP connections in specific is a challenging topic, and complex to implement using Golang.
-   We implemented a ratehr basic UDP proxy with room for improvement.
+   Due to the variety of protocols available in common devices, the honeypot must handle both TCP ([#65](https://github.com/aau-network-security/riotpot/issues/65)) and UDP ([#66](https://github.com/aau-network-security/riotpot/issues/66)) connections. UDP connections in specific is a challenging topic, and complex to implement using Golang.
+   We implemented a rather basic UDP proxy with room for improvement.
    However, middlewares were not implemented for UDP.
 
 ```golang
@@ -226,7 +240,7 @@ For this we used [gin](https://github.com/gin-gonic/gin), an open source HTTP fr
 This too implements a zero allocation router that includes nested routing and supports [Swagger](https://swagger.io/) documentation.
 Swagger is an open source specification for documenting API endpoints.
 
-The API implementation is relatively simple, containing just enough endpoints for performing individual CRUD operations on both services and proxies, and a reduced number of additional endpoints to simplify creating and deleting services already linked to proxies.
+The API implementation is relatively simple, containing just enough endpoints for performing individual CRUD operations on both services ([#68](https://github.com/aau-network-security/riotpot/issues/68)) and proxies ([#67](https://github.com/aau-network-security/riotpot/issues/67)), and a reduced number of additional endpoints to simplify creating and deleting services already linked to proxies. Lastly, the Swagger documentation has been included as one of the API endpoints ([#61](https://github.com/aau-network-security/riotpot/issues/61)), covering cases in where the UI is not an option.
 
 ```golang
 func newServiceAndProxy(ctx *gin.Context) {
@@ -270,53 +284,149 @@ func newServiceAndProxy(ctx *gin.Context) {
 
 ### 2.3.2 UI
 
-Regarding the UI, we agreed on using [React](https://reactjs.org/) with [Typescript](https://www.typescriptlang.org/), [SCSS](https://sass-lang.com/) and [Recoil](https://recoiljs.org/)
+Using our Figma design as a blueprint for the UI, we agreed on creating a webapp using a [React](https://reactjs.org/) stack.
+React is based on creating individual UI components and manage their state.
+This stack combines state-of-the-art technologies to create interoperable applications that can be accessed from the browser.
+In addition, we enritched the application with support for [Typescript](https://www.typescriptlang.org/) and [SCSS](https://sass-lang.com/).
+Typescript provides with additional data types and type declarations required in modern applications.
+SCSS introduces structure and scripting capabilities to regular CSS.
+
+In addition, we choose [Recoil](https://recoiljs.org/) for our state management tool, instead of other choices such as [Redux](https://redux.js.org/), or a separated database to manage persistance.
+A state management tool is a crutial component for React applications; however, it is often a trade-off between features and the necessary resources necessary to maintain it.
+What is more, it introduces new complexities to the stack, and new technologies to consider for developers.
+Recoil offers simplicity at the cost of weaker documentation and less features.
+
+Furthermore, Recoil allow us to manage the state of the application and display content in our components, changing the content on the go, and even upload pre-defined states on demand.
+This feature is directly related to one of our requirements, **to offer pre-defined profiles to the user** ([#69](https://github.com/aau-network-security/riotpot/issues/69)), used to shape RIoTPot **instances** into realistic devices, and simplify provisioning instances with **services**.
+Therefore, the webapp maintains the state through mainly three pages (plus settings):
+
+{% include gallery id="gallery-ui" caption="RIoTPot UI main pages" %}
+
+1. **Services:**
+   This page contains the list of registered services ([#71](https://github.com/aau-network-security/riotpot/issues/71)). A service is defined given a network protocol (UDP or TCP), the reachable address (host and port in where the service is listening), a name, description and interaction level.
+   The interaction level is mainly informative, to differentiate low interaction honeypots from fully flagged services.
+
+2. **Profiles:**
+   The page contains the list of profiles available to choose from ([#72](https://github.com/aau-network-security/riotpot/issues/72)).
+   Profiles act as templates for instances.
+   A profile contains a number of mixed services typically found in that type of device.
+   For example, a not-very-secure router may expose services such as Telnet, Echo, SSH and HTTP.
+   It is possible to mix low interaction with high interaction, or even similar services using different ports and interaction.
+   We understand that researchers are curious, and RIoTPot does not want to limit their possibilites.
+   New profiles just require a unique name; then, the user is free to add and remove services from the details view.
+
+3. **Instances:**
+   In this page, users can find registered instances and a summary of the current state of the services included in the instance ([#70](https://github.com/aau-network-security/riotpot/issues/70)).
+   Creating instances can be done by clicking in the "add (+)" button, which shows a dropdown with the list of available profiles to choose as template.
+   However, users can choose to create their own empty instance if they decide to do so.
+   Choosing a profile as template will create the list of services in the instance.
+   Then, the user can decide to start and stop the proxies by simply clicking on a toggle button.
+
+**Note:** The information included in the details of the instance is gathered through the RIoTPot instance API.
+{: .notice--warning}
 
 ## 2.4 Summary
 
 ### 2.4.1 Commits
 
-The [Commits List](https://github.com/aau-network-security/riotpot/commits/gsoc_2022) spans from commit [edbe15a8e2fca3fe6c3252646d7540e02173f493](https://github.com/aau-network-security/riotpot/commit/bbca3740210c26cb678ad50363232466b66cefaa) to [7f04b2fbaa669fcbcf0119dff1b1a35544b3a432](https://github.com/aau-network-security/riotpot/commit/7f04b2fbaa669fcbcf0119dff1b1a35544b3a432).
+While the issues tracked in GitHub give an overall representation of the requirements and milestones, we did not use the tracking system extensively.
+We used a single branch for the whole GSoC instead of the typical flow of creating braches, forking and creating pull requests.
+While we acknowledge that best practices are always relevant, we preferred a simpler setup.
+
+The [Commits List](https://github.com/aau-network-security/riotpot/commits/gsoc_2022) spans from commit [edbe15a8e2fca3fe6c3252646d7540e02173f493](https://github.com/aau-network-security/riotpot/commit/bbca3740210c26cb678ad50363232466b66cefaa) to the last commit before 12/09/2022 (our GSoC deadline), under the username `RicYaben` and `ryaben17`.
+
+At the time, the code has not been merged yet.
+The changes break the previous application; therefore, we decided waiting until the version has been revised carefully and we have fixed minor issues.
 
 ### 2.4.2 Contributions
 
-- [x] Proxy
-  - [x] TCP
-  - [ ] UDP
-  - [x] Middlewares
-- [x] API
-  - [x] CRUD Operations for proxies
-  - [x] CRUD Operations for services
-  - [x] Swagger API documentation
-- [x] UI
-  - [x] Instances
-  - [x] Services
-  - [x] Profiles
-  - [ ] Settings
-- Protocols
-  - OCPP
-    - [x] High Interaction
-    - [ ] Low Interaction (v1.6)
-- Other
-  - Included standard formatter
-  - Removed Docker dependancy
-  - Refactor code
+In the following table contain we summarised the list of contributions to the RIoTPot project.
+It is important to mention that since the application has been heavily modified, it is difficult to map contributions.
+Therefore, the table includes just the milestones and features included in each application, rather than pointing at individual factors, or how do they improve upon the previous version.
+Overall, we differentiate between RIoTPot and the UI.
+_RIoTPot_ refers to the honeypot, and _UI_ to the web application.
+
+| Application | Milestones | Features           | Comments                                                      |
+| :---------: | ---------- | ------------------ | ------------------------------------------------------------- |
+|   RIoTPot   | Proxy      | TCP                |                                                               |
+|             |            | UDP                | The proxy needs to be revised and further tested              |
+|             |            | Manager            |                                                               |
+|             | Services   | Plugins            | Modified to use the new structure                             |
+|             |            | Manager            |                                                               |
+|             | API        | Proxies Endpoints  |                                                               |
+|             |            | Services Endpoints | Added endpoint to create services with proxies in one request |
+|             |            | Swagger            | Added endpoint to show swagger documentation                  |
+|             | Logger     |                    | ZeroLog                                                       |
+|     UI      | Profiles   | CRUD               |                                                               |
+|             | Services   | CRUD               |                                                               |
+|             | Instances  | CRUD               | Connects to the RIoTPot API                                   |
+|             | Settings   |                    | load and download state from/to JSON                          |
+
+In addition, we have modified the `Docker` files to work with this version, separated services in their own container and network, and included other services (e.g. OCPP 1.6).
+The major change to this, is that we have removed the dependancy from virtualisation tools, and left it as an option for the user.
+Finally, we refactor the code to remove no-longer necessary packages and artifacts.
+However, there are leftover artifacts in the code that should be removed in future versions.
 
 ### 2.4.3 Known Issues
 
-- SSH internal low interaction protocol crashes the application when a client closes the connection
-- UDP Proxy and Middlewares need to be revised
+- SSH internal low interaction protocol crashes the application when a client closes the connection.
+- UDP Proxy and Middlewares need to be revised.
 
 ## 2.5 Example Execution
 
 ## 2.6 Next Steps
 
-### 2.6.1 RIoTPoT
+We are leaving RIoTPot at the stage of PoC (Proof of Concept).
+Many of the features will welcome a second round of reviewing
+
+### 2.6.1 RIoTPot
+
+* **Middlewares:** 
+  One of the best ways to improve the sustainability of the system is to integrate middlewares that respect the resources of the system.
+  Our first motive to include middlewares was to drop connections of attackers attempting to deplete the resources of the honeypot.
+  In addition, middlewares should be a focal point for future developing, giving RIoTPot the capacity to fingerprint attackers while they communicate with the honeypot.
+  Other use cases may include upgrade connections to keep the attacker engaged with the system, or offshore connections to another system.
+
+* **UDP Protocol:**
+  Although we have tested our implementation of the UDP proxy, the protocol is rather complex and may require extra attention.
+  The implementation in golang seems straight forward, but it gave us multiple problems.
 
 ### 2.6.2 UI
 
-# 3 The GSoC 2022 Experience
+* **CSS Love:**
+  A number of UI components need to be formatted properly to follow the Figma mock.
+  Due to the limited amount of time we had at the end of the project, we decided to prioritise other tasks over the general feeling of the components.
+  Regardless, creating a consistent experience for the user is a priority that should not be overseen.
 
-## 3.1 First half (June 12th - August 1st)
+* **Feedback:**
+  The current state of the application does not provide feedback to the user on whether things are going the way they are supposed to.
+  It would be beneficial to add visual feedback as simple notifications.
 
-## 3.2 Second Half (August 1st - September 12th)
+* **Connect the UI to TCPDump:**
+  While creating the mock, we discussed to integrate ways to display the information from the `.pcap` files in the UI. 
+  The mocks already show this intention, and it would be beneficial for the vision of RIoTPot, into mapping attacks, fingerprinting attackers, and evaluate the performance of the honeypot using different configurations.
+  However, this should be done with respect to the user preferences and resources.
+  Parsing `.pcap` files is usually known for being very power hungry!
+
+* **Service details page:**
+  As a _nice to have feature_, we did not include this page in the UI.
+  Future versions of the webapp must include this page as represented in the Figma mock.
+
+
+```mermaid
+gantt
+  dateFormat  YYYY-MM-DD
+  title Adding GANTT diagram functionality to mermaid
+
+  section RIoTPot
+  Midlewares task           :   des1, 30h
+  UDP Protocol task         :   des2, 30h 
+```
+
+<div class="mermaid">
+graph TD;
+    A-->B;
+    A-->C;
+    B-->D;
+    C-->D;
+</div>
