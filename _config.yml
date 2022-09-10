@@ -27,8 +27,8 @@ search: true
 
 # Meta
 name: Ricardo Yaben
-url: "https://ryaben17.github.io"
-baseurl: "/riotpot-gsoc_2022"
+url: "https://ricyaben.github.io"
+baseurl: "/blog"
 repository: aau-network-security/riotpot
 
 # Build settings
