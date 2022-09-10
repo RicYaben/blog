@@ -65,23 +65,6 @@ plugins:
   - jemoji
   - jekyll-include-cache
 
-author: &ric
-  name: Ricardo Yaben
-  avatar: "/assets/images/bio.png"
-  bio: >-
-    GSoC 2022 Contributor |
-    MSc in Cyber Security |
-  links: &links
-    - label: "LinkedIn"
-      icon: "fab fa-fw fa-linkedin"
-      url: "https://www.linkedin.com/in/ricardo-yaben-lopezosa-aa63a2159"
-    - label: "GitHub"
-      icon: "fab fa-fw fa-github"
-      url: "https://github.com/ricyaben"
-    - label: "Twitter"
-      icon: "fab fa-fw fa-twitter-square"
-      url: "https://twitter.com/@RYaben"
-
 footer:
   links: *links
 
