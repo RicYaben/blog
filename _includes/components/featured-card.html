@@ -1,16 +1,16 @@
 <div class="featured-card">
 
   <div class="thumbnail">
-    {% if card.github %}
+    {% if include.card.github %}
       <div class="github">
-        <a href="{{card.github}}">
+        <a href="{{ include.card.github}}">
           <i class="fab fa-fw fa-github" aria-hidden="true"></i>
         </a>
       </div>
     {% endif %}
-    {% if card.thumbnail %}
+    {% if include.card.thumbnail %}
       <img
-        src="{{ card.thumbnail | relative_path }}"
+        src="{{ include.card.thumbnail | relative_path }}"
         alt="{{card.title}}"
         loading="lazy" />
     {% endif %}
@@ -18,16 +18,16 @@
 
   <div class="details">
     <div class="title">
-      {{ card.title }}
+      {{ include.card.title }}
     </div>
 
     <div class="description">
-      {{ card.description }}
+      {{ include.card.description }}
     </div>
 
     <div class="more">
-      {% if card.post %}
-        <a href="{{card.post}}">learn more
+      {% if include.card.post %}
+        <a href="{{ include.card.post }}">learn more
         </a>
       {% endif %}
     </div>
