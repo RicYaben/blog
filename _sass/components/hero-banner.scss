@@ -1,15 +1,23 @@
 div.hero-banner{
     display: flex;
-    flex-direction: row;
     height: 80vh;
     place-content: space-evenly;
+    justify-content: center;
     gap: 3em;
+
+    @include breakpoint(max-width $medium) {
+        flex-direction: column;
+    }
+
+    @include breakpoint($medium-wide){
+        flex-direction: row;
+    }
 
     div#hero-image{
         display: flex;
         align-self: center;
-        justify-content: right;
         min-width: 50%;
+        justify-content: center;
 
         img{
             max-width: 30em;

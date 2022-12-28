@@ -1,16 +1,24 @@
 div.side-container{
     display: flex;
-    flex-direction: row;
     justify-content: center;
     align-items: center;
-    align-self: stretch;
-    height: 20em;
-    gap: 10%;
+    gap: 3em;
 
-    &.left{
-        flex-flow: row-reverse;
-        div.title{
-            text-align: right;
+    @include breakpoint(max-width $medium) {
+        flex-direction: column;
+        align-self: center;
+    }
+
+    @include breakpoint($medium-wide){
+        flex-direction: row;
+        height: 20em;
+        align-self: stretch;
+
+        &.left{
+            flex-flow: row-reverse;
+            div.title{
+                text-align: right;
+            }
         }
     }
 
@@ -22,7 +30,7 @@ div.side-container{
         align-self: stretch;
         width: 20em;
 
-        img{
+        > div.graphic > img{
             max-height: -webkit-fill-available;
         }
         
