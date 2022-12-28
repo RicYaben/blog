@@ -30,6 +30,8 @@ div.gantt{
         background-color: mix($text-color, $background-color, 20%);
         filter: drop-shadow(0px 2px 2px rgba(0, 0, 0, 0.25));
 
+        //background-image: url("/blog/assets/images/top-separator.svg");
+
         > img{
             background-color: #fcfeff;
         }
@@ -39,9 +41,8 @@ div.gantt{
         border-radius: 50px;
         height: 1em;
         transition: .5s;
+        background-color: mix($text-color, $background-color, 70%);
         cursor: pointer;
-
-        background-image: url(/assets/images/top-separator.svg);
 
         &:hover{
             background-color: $red;
