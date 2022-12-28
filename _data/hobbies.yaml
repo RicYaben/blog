@@ -1,0 +1,13 @@
+- title: Climbing
+  graphic: assets/images/rocky.png
+  summary: >-
+    In my free time I like to do indoor climbing. 
+    For the most part I practice bouldering and sport climbing. 
+    I have not tried rock climbing yet, but I am up for the challenge.
+
+- title: Open Source
+  graphic: assets/images/keycap.png
+  summary: >-
+    I dedicate a couple of hours a week to support open-source projects, 
+    such as #riotpot an amazing honeypot from the Honeynet Project, and #midnight-sea,
+    a generic crawler for darknet markets that I co-authored with two colleagues during my MSc.

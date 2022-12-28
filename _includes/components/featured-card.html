@@ -1,0 +1,35 @@
+<div class="featured-card">
+
+  <div class="thumbnail">
+    {% if card.github %}
+      <div class="github">
+        <a href="{{card.github}}">
+          <i class="fab fa-fw fa-github" aria-hidden="true"></i>
+        </a>
+      </div>
+    {% endif %}
+    {% if card.thumbnail %}
+      <img
+        src="{{ card.thumbnail | relative_path }}"
+        alt="{{card.title}}"
+        loading="lazy" />
+    {% endif %}
+  </div>
+
+  <div class="details">
+    <div class="title">
+      {{ card.title }}
+    </div>
+
+    <div class="description">
+      {{ card.description }}
+    </div>
+
+    <div class="more">
+      {% if card.post %}
+        <a href="{{card.post}}">learn more
+        </a>
+      {% endif %}
+    </div>
+  </div>
+</div>

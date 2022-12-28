@@ -1,0 +1,59 @@
+div.gantt{
+    display: grid;
+    gap: 15px;
+    width: -webkit-fill-available;
+    overflow: auto;
+    padding: 1em;
+    border-radius: $border-radius;
+    background-color: #fcfeff;
+
+    div{
+        display: flex;
+        align-self: center;
+    }
+
+    div.title{
+        grid-column: 1/-1;
+        width: fit-content;
+        position: sticky;
+        left: 0;
+    }
+
+    div.logo{
+        position: sticky;
+        left: 0;
+        grid-column: axis;
+        overflow: hidden;
+        width: 2em;
+        height: 2em;
+        border-radius: $border-radius;
+        background-color: mix($text-color, $background-color, 20%);
+        filter: drop-shadow(0px 2px 2px rgba(0, 0, 0, 0.25));
+
+        > img{
+            background-color: #fcfeff;
+        }
+    }
+
+    div.bar{
+        border-radius: 50px;
+        height: 1em;
+        transition: .5s;
+        cursor: pointer;
+
+        background-image: url(/assets/images/top-separator.svg);
+
+        &:hover{
+            background-color: $red;
+        }
+    }
+
+    // The headers of the gantt are at the bottom, and show the year
+    div.xaxis-column{
+        grid-row-start: axis;
+    }
+}
+
+div.gantt-info{
+    display: none;
+}

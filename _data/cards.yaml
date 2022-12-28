@@ -1,0 +1,15 @@
+cards:
+  - title: RIoTPot
+    description: >-
+      The shapeshifting honeypot. 
+      Capable of simulating the behaviour of real-life devices, work together with other honeypots and much more. 
+      I contribute to this project often.
+    github: "https://github.com/aau-network-security/riotpot"
+    post: /projects/gsoc_2022_riotpot/
+    thumbnail: /assets/images/riotpot.png
+
+  - title: Midnight Sea
+    thumbnail: /assets/images/ms.png
+    description: >-
+      A generic crawler for darkweb marketplaces. 
+      Born during my MSc and co-authored together with two of the best colleagues one could dream off.

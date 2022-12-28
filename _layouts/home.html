@@ -1,0 +1,44 @@
+---
+layout: default
+---
+<main>
+  {% include components/hero-banner.html %}
+
+  <div class="divider">
+    <img src="{{'/assets/images/top-separator.svg' | relative_url }}" alt="separator" />
+  </div>
+
+  {% comment %} Featured projects {% endcomment %}
+  <section class="dark home" id="featured">
+    {% for card in site.data.cards.cards %}
+      {% include components/featured-card.html card=card %}
+    {% endfor %}
+  </section>
+
+  <div class="divider">
+    <img src="{{'/assets/images/bottom-separator.svg' | relative_url }}" alt="separator" />
+  </div>
+
+  {% comment %} Experience {% endcomment %}
+  <section class="home" id="experience">
+    <div class="title">
+
+      <div>Curriculum</div>
+    </div>
+    <div class="wrapper">
+      {% include components/gantt.html data=site.data.experience name = "experience" %}
+    </div>
+  </section>
+
+  {% comment %} Hobbies {% endcomment %}
+  <section class="home" id="hobbies">
+    <div class="title">
+
+      <div>Hobbies</div>
+    </div>
+    {% for hobbie in site.data.hobbies %}
+      {% assign mod = forloop.index | modulo: 2 %}
+      {% include components/side-container.html data=hobbie mod=mod %}
+    {% endfor %}
+  </section>
+</main>

@@ -1,0 +1,80 @@
+
+section#featured{
+    flex-direction: row;
+    padding: 10em 5em;
+    gap: 5em;
+    justify-content: space-evenly;
+
+    div.featured-card{
+        border-radius: $border-radius;
+        height: 25em;
+        width: 20em;
+        padding: 1em;
+        gap: 1em;
+        display: flex;
+        flex-direction: column;
+    
+        div.thumbnail{
+            border-radius: $border-radius;
+            height: 40%;
+            min-height: 40%;
+            display: flex;
+            justify-content: center;
+
+            div.github{
+                background-color: $red;
+                border-radius: $border-radius;
+                position: absolute;
+                display: flex;
+                padding: 0.3em .5em;
+                font-weight: bold;
+                width: fit-content;
+                margin-right: 15em;
+                margin-top: -1em;
+
+                a{
+                    color: $background-color;
+                    text-decoration: none;
+                    line-height: 0;
+                }
+            }
+
+            > img{
+                position: relative;
+                top: 20%;
+                height: -webkit-fill-available;
+            }
+        }
+    
+        div.details{
+            gap: 15px;
+            display: flex;
+            flex-direction: column;
+            height: -webkit-fill-available;
+    
+            div.title{
+                display: flex;
+                justify-content: center;
+                justify-items: center;
+                font-weight: bold;
+                text-overflow: clip;
+                z-index: 1;
+            }
+        
+            div.description{
+                height: -webkit-fill-available;
+                text-align: justify;
+            }
+
+            div.more a{
+                text-decoration: none;
+                color: $background-color;
+                padding: 0.3em .7em;
+                background-color: $red;
+                border-radius: 50px;
+            }
+        }
+    }
+
+}
+

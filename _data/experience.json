@@ -1,0 +1,156 @@
+{
+  "legend": "years",
+  "range": ["2016", "2024"],
+  "sections": [
+    {
+      "id": "pe",
+      "title": "Professional experience",
+      "lanes": [
+        {
+          "id": "sns",
+          "name": "Sticks'n'Sushi",
+          "logo": "sns.png",
+          "bars": [
+            {
+              "id": 1,
+              "span": ["2016-03", "2018-03"],
+              "title": "Line Chef",
+              "subtitle": "Full-time",
+              "location": "DK, Copenhagen",
+              "summary": "For the most part, I was a Yakitori cook and responsible for the daily functioning of the section (hot kitchen).",
+              "tags": ["yakitori", "cook"]
+            }
+          ]
+        },
+        {
+          "id": "bc",
+          "name": "Better Collective",
+          "logo": "bc.png",
+          "bars": [
+            {
+              "id": 1,
+              "span": ["2018-03", "2019-03"],
+              "title": "IT Support",
+              "subtitle": "Part-time",
+              "location": "DK, Copenhagen",
+              "summary": "This was a helpdesk position where I answered to IT issues, and developed small tools.",
+              "tags": ["GApps", "javascript", "windows", "linux", "mac", "IoT"]
+            },
+            {
+              "id": 2,
+              "span": ["2019-03", "2022-07"],
+              "title": "Developer",
+              "subtitle": "Part-time",
+              "location": "DK, Copenhagen",
+              "summary": "As part of the Digital Performance team, I developed many tools to streamline and automate diverse workflows and pipelines. In addition, I developed a webapp to unify and simplify the team's daily tasks.",
+              "tags": [
+                "django",
+                "python",
+                "javascript",
+                "react",
+                "restApi",
+                "postgresql",
+                "docker",
+                "chef",
+                "cloud"
+              ]
+            },
+            {
+              "id": 3,
+              "span": ["2022-07", "2023-01"],
+              "title": "Consultant",
+              "subtitle": "Full-time",
+              "location": "DK, Copenhagen",
+              "summary": "The last role at BC, where I help the team with product development tasks and further improve their internal documentation.",
+              "tags": ["agile", "scrum", "gantt", "kanban", "docs", "jira"]
+            }
+          ]
+        },
+        {
+          "id": "ey",
+          "name": "Ernst & Young",
+          "logo": "ey.png",
+          "bars": [
+            {
+              "id": 1,
+              "span": ["2022-08", "2022-11"],
+              "title": "Cyber Security Consultant",
+              "subtitle": "Full-time",
+              "location": "DK, Copenhagen",
+              "summary": "For a brief but intense time, I help organisations to improve their cyber security.",
+              "tags": ["cybersecurity"]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "pe": "vol",
+      "title": "Volunteering",
+      "lanes": [
+        {
+          "id": "gsoc",
+          "name": "Google Summer of Code",
+          "logo": "gsoc.png",
+          "bars": [
+            {
+              "id": 1,
+              "span": ["2022-03", "2022-09"],
+              "title": "Contributor",
+              "subtitle": "Full-time",
+              "location": "DK, Copenhagen",
+              "summary": "This was a paid position as a GSOC 2022 contributor in collaboration with the Honeynet project to work on the RIoTPot honeypot. I enhanced the honeypot with a number of features, including device profiles and a proxy to route connections to other honeypots through RIoTPot.",
+              "tags": ["RIoTPot", "golang", "honeypot", "IoT"]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ed",
+      "title": "Education",
+      "lanes": [
+        {
+          "id": "aau",
+          "name": "Aalborg University (Copenhagen)",
+          "logo": "aau.png",
+          "bars": [
+            {
+              "id": 1,
+              "span": ["2017-09", "2020-05"],
+              "title": "BSc in IT Communication and new Media (ITCOM)",
+              "subtitle": "Full-time",
+              "location": "DK, Copenhagen",
+              "summary": "The bachelor tackles basic concepts regarding application development, cyber security, communication protocols, Internet of Things (IoT), and computer hardware."
+            },
+            {
+              "id": 2,
+              "span": ["2020-09", "2022-05"],
+              "title": "MSc in Cyber Security",
+              "subtitle": "Full-time",
+              "location": "DK, Copenhagen",
+              "summary": "For two years, I learned advanced topics in cyber security following the problem-based learning model, where each semester included a range of group projects with topics such as attack and defense, and cyber deception. The most notable projects I worked on were the RIoTPot honeypot, and our own crawler for darkweb marketplaces named Midnight Sea.",
+              "tags": ["cybersecurity", "RIoTPot", "midnightSea"]
+            }
+          ]
+        },
+        {
+          "id": "dtu",
+          "name": "Technical University of Denmark",
+          "logo": "dtu.png",
+          "bars": [
+            {
+              "id": 1,
+              "span": ["2023-01", "now"],
+              "title": "PhD student",
+              "subtitle": "Full-time",
+              "location": "DK, Copenhagen",
+              "summary": "The main topic of my PhD is to investigate Digital Ghost Ships (DGS). DGS are Internet facing devices with obselete cyber security (e.g., weak passwords and unpatched systems).",
+              "tags": ["DGS", "cybersecurity"]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

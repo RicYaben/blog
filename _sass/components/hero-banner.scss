@@ -1,0 +1,38 @@
+div.hero-banner{
+    display: flex;
+    flex-direction: row;
+    height: 80vh;
+    place-content: space-evenly;
+    gap: 3em;
+
+    div#hero-image{
+        display: flex;
+        align-self: center;
+        justify-content: right;
+        min-width: 50%;
+
+        img{
+            max-width: 30em;
+        }
+    }
+
+    div#hero-signature{
+        font-weight: bold;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 1.5em;
+
+        div#signature-name{
+            line-height: 1.2;
+    
+            div#name{
+                font-size: 6vh;
+            }
+    
+            div#last-name{
+                font-size: 3vh;
+            }
+        }
+    }
+}

@@ -13,32 +13,42 @@
 # you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
-title: Ricardo Yaben
-subtitle: Cyber Security Adventures
+#title: Ricardo Yaben
 email: ricardoyaben@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
-  Blogpost for my experience as a Cyber Security MSc.
-  Contains information in projects such as RIoTPoT, as part of my participation in the GSoC 2022 as a Contributor
-  in collaboration with the Honeynet project.
+  Ricardo Yaben official site.
 twitter_username: ric.yaben
 github_username: RicYaben
-minimal_mistakes_skin: dark
+minimal_mistakes_skin: custom
 search: true
+
+social:
+  type: Person
+  name: Ricardo Yaben
+  links:
+    - https://www.linkedin.com/in/ricardo-yaben-lopezosa-aa63a2159
+    - https://github.com/ricyaben
+    - https://twitter.com/@RYaben
 
 # Meta
 name: Ricardo Yaben
 url: "https://ricyaben.github.io"
-baseurl: "/blog"
-repository: aau-network-security/riotpot
+baseurl: "/"
+repository: ryaben/blog
+logo: /assets/images/logo.svg
 
 # Build settings
 markdown: kramdown
 remote_theme: mmistakes/minimal-mistakes
+
 # Outputting
 permalink: /:categories/:title/
 paginate: 5 # amount of posts to show
 paginate_path: /page:num/
 timezone: # https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+
+atom_feed:
+  hide: true
 
 include:
   - _pages
@@ -56,6 +66,10 @@ include:
 #   - vendor/gems/
 #   - vendor/ruby/
 
+# Scripts for footer and header
+# head_scripts:
+# footer_scripts:
+
 # Plugins (previously gems:)
 plugins:
   - jekyll-paginate
@@ -66,7 +80,16 @@ plugins:
   - jekyll-include-cache
 
 footer:
-  links: *links
+  links:
+    - label: "LinkedIn"
+      icon: "fab fa-fw fa-linkedin"
+      url: "https://www.linkedin.com/in/ricardo-yaben-lopezosa-aa63a2159"
+    - label: "GitHub"
+      icon: "fab fa-fw fa-github"
+      url: "https://github.com/ricyaben"
+    - label: "Twitter"
+      icon: "fab fa-fw fa-twitter-square"
+      url: "https://twitter.com/@RYaben"
 
 collections:
   portfolio:
@@ -86,8 +109,6 @@ defaults:
       read_time: true
       share: true
       related: true
-      author_profile: true
-      author: Ricardo Yaben
 
   # _pages
   - scope:
@@ -95,8 +116,6 @@ defaults:
       type: pages
     values:
       layout: single
-      author_profile: true
-      author: Ricardo Yaben
 
   # _portfolio
   - scope:
@@ -113,7 +132,6 @@ defaults:
     values:
       layout: single
       toc: true
-      author: Ricardo Yaben
 
 category_archive:
   type: liquid

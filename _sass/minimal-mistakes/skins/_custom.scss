@@ -1,0 +1,73 @@
+/* ==========================================================================
+   Custom skin
+   ========================================================================== */
+
+/* Colors */
+$red: #E63946;
+$grey: #343A40;
+$blue: #06445b;
+
+/* General */
+$background-color: #EDF2F4 !default; //#242424 #181818
+$text-color: #001219 !default;
+$primary-color: #005F73 !default;
+
+$border-radius: 4px;
+$border-color: mix($text-color, $background-color, 20%) !default;
+
+/* Code */
+$code-background-color: mix(#343A40, $background-color, 15%) !default;
+$code-background-color-dark: mix(#2b2b2b, $background-color, 20%) !default;
+
+/* Forms */
+$form-background-color: mix($text-color, $background-color, 15%) !default;
+
+/* Links */
+$link-color: mix($primary-color, $text-color, 40%) !default;
+$link-color-hover: $primary-color!default;
+$link-color-visited: $primary-color!default;
+
+/* Navigation */
+$masthead-link-color: mix($text-color, $background-color, 30%) !default;
+$masthead-link-color-hover: $text-color !default;
+$navicon-link-color-hover: mix($text-color, $background-color, 30%) !default;
+
+
+
+/* Footer-specific */
+$footer-background-color: $text-color !default;
+
+.author__urls.social-icons i,
+.author__urls.social-icons .svg-inline--fa,
+.page__footer-follow .social-icons i,
+.page__footer-follow .social-icons .svg-inline--fa  {
+  color: inherit;
+}
+
+.ais-search-box .ais-search-box--input {
+  background-color: $form-background-color;
+}
+
+
+::-webkit-scrollbar {
+  width: 15px;
+  height: 15px
+}
+
+::-webkit-scrollbar-track {
+  background: transparent; 
+}
+
+::-webkit-scrollbar-thumb {
+  background: mix($text-color, $background-color, 20%);
+  border-radius: 50px;
+
+  &:hover{
+    background: mix($text-color, $background-color, 40%); 
+  }
+}
+
+div.divider {
+  overflow: hidden;
+  line-height: 0;
+}

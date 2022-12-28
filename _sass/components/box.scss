@@ -1,0 +1,115 @@
+div.box{
+    position: absolute;
+    width: 18rem;
+    color: $background-color;
+
+    > div.body{
+
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        
+        background: $grey;
+        border-radius: $border-radius;
+        gap: .1em;
+        z-index: 1;
+
+        justify-content: center;
+        //
+        align-items: center;
+        text-align: justify;
+        word-spacing: -0.05em;
+        hyphens: auto;
+
+        > div{
+            width: -webkit-fill-available;
+            padding: .6em 1em;
+        }
+
+        >  div.header{
+            border-bottom: 1px solid mix($background-color, $text-color, 30%);
+
+            div.title{
+                font-weight: bold;
+                font-size: smaller;
+            }
+
+            div.subtitle{
+                color: mix($background-color, $text-color, 80%);
+                font-size: small;
+            }
+        }
+
+        > div.content{
+            font-size: initial;
+            font-weight: 300;
+            gap: 1em;
+            display: flex;
+            flex-direction: column;
+
+            div.summary{
+                margin: .5em;
+                text-overflow: ellipsis;
+                overflow: hidden;
+                display: -webkit-box;
+                //
+                line-clamp: 3;
+                -webkit-line-clamp: 3;
+                -webkit-box-orient: vertical;
+                transition: .2s;
+
+                &:hover{
+                    overflow: visible;
+                    line-clamp: unset;
+                    -webkit-line-clamp: unset;
+                }
+            }
+
+            div.dates{
+                display: flex;
+                flex-flow: wrap;
+                gap: 1em;
+                align-items: center;
+
+                span{
+                    display: flex;
+                    gap: .5em;
+                    align-items: center;
+
+                    div.date{
+                        border-radius: 50px;
+                        padding: .1em .8em;
+                        font-weight: normal;
+                        background-color: $text-color;
+                    }
+                }
+            }
+
+            > div.tags{
+                display: flex;
+                flex-flow: wrap;
+                gap: .3em;
+
+                div.tag{
+                    border-radius: $border-radius;
+                    padding: .1em .3em;
+                    border: 0.5px solid mix($background-color, $text-color, 30%);
+    
+                    width: fit-content;
+                    font-weight: normal;
+                }
+            }
+        }
+    }
+    
+    > div.polygon{
+        position: relative;
+        margin-top: -45px;
+        fill: $grey;
+        height: 70px;
+
+        svg{
+            position: absolute;
+        }
+    }
+}

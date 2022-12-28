@@ -1,0 +1,27 @@
+section.home{
+    display: flex;
+    justify-content: center;
+    padding: 5rem;
+    gap: 1em;
+    align-items: center;
+    flex-direction: column;
+
+    &.dark{
+        color: $background-color;
+        background-color: $text-color;
+    }
+
+    > div.title{
+        display: flex;
+        flex-direction: row;
+        gap: 1em;
+        width: -webkit-fill-available;
+        font-weight: bold;
+        font-size: xx-large;
+        align-items: center;
+    }
+
+    > div.wrapper{
+        display: flex;
+    }
+}

@@ -1,0 +1,9 @@
+a.external-link{
+    color: $text-color;
+    text-decoration: none;
+
+    &:hover{
+        transition: .2s ease-out;
+        color: $red;
+    }
+}

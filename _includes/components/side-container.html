@@ -1,0 +1,13 @@
+<div class="side-container {% if include.mod == 0 %} left {% endif %}">
+  <div class="graphic">
+    {% if include.data.graphic %}
+      <img src="{{ include.data.graphic  | relative_url }}" load="lazy" />
+    {% endif %}
+  </div>
+  <div>
+    <div class="description">
+      <div class="title">{{ include.data.title }}</div>
+      <div class="summary">{{ include.data.summary }}</div>
+    </div>
+  </div>
+</div>

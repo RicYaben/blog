@@ -1,10 +1,7 @@
 <script src="https://unpkg.com/mermaid@9.1.6/dist/mermaid.js"></script>
 <script>
-  $(document).ready(function () {
-    mermaid.initialize({
-      startOnLoad:true,
-      theme: "dark",
-    });
+  $(document).ready(function() {
+    mermaid.initialize({startOnLoad: true});
     window.mermaid.init(undefined, document.querySelectorAll('.language-mermaid'));
   });
 </script>
