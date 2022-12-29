@@ -27,7 +27,7 @@
 
     <div class="more">
       {% if include.card.post %}
-        <a href="{{ include.card.post }}">learn more
+        <a href="{{ include.card.post | relative_url }}">learn more
         </a>
       {% endif %}
     </div>
