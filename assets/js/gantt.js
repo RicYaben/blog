@@ -41,6 +41,13 @@ class Gantt {
     // Add the rows and columns
     this.element.append(this.rows);
     this.element.append(this.columns);
+
+    const tooltipTriggerList = document.querySelectorAll(
+      '[data-bs-toggle="tooltip"]'
+    );
+    const tooltipList = [...tooltipTriggerList].map(
+      (tooltipTriggerEl) => new bootstrap.Tooltip(tooltipTriggerEl)
+    );
   }
 
   get datesInterval() {
@@ -74,9 +81,14 @@ class Gantt {
       index++;
 
       for (const lane of section.lanes) {
-        let logoEl = $(logoHtml).css({
-          "grid-row-start": index,
-        });
+        let logoEl = $(logoHtml)
+          .css({
+            "grid-row-start": index,
+          })
+          .attr({
+            "data-bs-toggle": "tooltip",
+            "data-bs-title": lane.name,
+          });
 
         if ("logo" in lane) {
           let logoImg = $(
