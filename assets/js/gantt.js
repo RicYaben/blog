@@ -184,129 +184,46 @@ class Gantt {
   }
 }
 
-class GanttBox {
-  box;
-  target;
+function showGanttBarModalInfo(bar) {
+  const box = $("#ganttModal");
 
-  constructor() {
-    this.addGanttBox();
+  // Add the title and subtitle of the modal
+  let subs = [];
+  if ("location" in bar) {
+    subs.push(bar.location);
   }
 
-  addGanttBox() {
-    const boxHTML = `
-      <div class="box gantt-info">
-        <div class="body">
-          <div class="header">
-            <div class="title"></div>
-            <div class="subtitle"></div>
-          </div>
-          <div class="content">
-            <div class="dates">
+  if ("subtitle" in bar) {
+    subs.push(bar.subtitle);
+  }
+
+  const subtitle = $(
+    `<div class="subtitle">${subs.join("&ensp; &bull; &ensp;")}</div>`
+  );
+  const title = $(`<div class="title">${bar.title}</div>`);
+
+  box.find("div.modal-title").html([title, subtitle]);
+
+  const summary = $(`<div class="summary">${bar.summary}</div>`);
+
+  // Add the content of the body to the modal
+  const datesmapped = bar.span
+    .map((d) => `<div class="date">${d}</div>`)
+    .join(`<i class="fa-solid fa-arrow-right"></i>`);
+
+  const dates = $(`<div class="dates">
               <i class="fa-regular fa-calendar"></i>
-              <span></span>
-            </div>
-            <div class="summary"></div>
-            <div class="tags"></div>
-          </div>
-        </div>
-        <div class="polygon">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="100"
-            height="100"
-            viewBox="10 25 150 100"
-            preserveAspectRatio="none"
-          >
-            <path
-              xmlns="http://www.w3.org/2000/svg"
-              d="M29.24 84.66a1 1 0 0 0 .96 1.75l111.82-38.93a1 1 0 0 0-.33-1.97l-57.03.06a17.28 17.28 0 0 0-10.7 3.72z"
-              stroke="#343a40"
-              stroke-width="3"
-            />
-          </svg>
-        </div>
-      </div>
-    `;
+              <span>${datesmapped}</span>
+            </div>`);
 
-    this.box = $(boxHTML);
-    $("main").append(this.box);
+  let tagList = null;
+  if ("tags" in bar) {
+    tagList = bar.tags.map((t) => $(`<div class="tag">#${t}</div>`));
   }
+  const tags = $(`<div class="tags"></div>`).html(tagList);
 
-  possition(element) {
-    if (element == this.target && this.box.is(":visible")) {
-      return;
-    }
+  box.find("div.modal-body").html([dates, summary, tags]);
 
-    // set the target to the element, so we can recalculate on scroll
-    this.target = element;
-
-    let polygonScale = 1;
-    let polygonRight = "auto";
-    let left = element.position().left + element.width() * 0.5;
-    let top = element.position().top - this.box.height();
-
-    if ($(window).width() < left + this.box.width()) {
-      polygonScale = -1;
-      polygonRight = 0;
-      left -= this.box.width();
-
-      const parentLeft = element.parent(".gantt").position().left;
-      if (parentLeft < left) {
-        left -= parentLeft;
-      }
-    }
-
-    this.box.find("div.polygon svg").css({
-      transform: `scale(${polygonScale}, 1)`,
-      right: polygonRight,
-    });
-
-    this.box.css({
-      top: top,
-      left: left,
-    });
-  }
-
-  info(bar) {
-    this.box.find("div.title").text(bar.title);
-
-    let subs = [];
-    if ("location" in bar) {
-      subs.push(bar.location);
-    }
-
-    if ("subtitle" in bar) {
-      subs.push(bar.subtitle);
-    }
-
-    this.box.find("div.subtitle").html(subs.join("&ensp; &bull; &ensp;"));
-
-    this.box.find("div.summary").text(`"${bar.summary}"`);
-    this.box
-      .find("div.dates span")
-      .html(
-        bar.span
-          .map((d) => `<div class="date">${d}</div>`)
-          .join(`<i class="fa-solid fa-arrow-right"></i>`)
-      );
-
-    let tags = null;
-    if ("tags" in bar) {
-      tags = bar.tags.map((t) => $(`<div class="tag">#${t}</div>`));
-    }
-    this.box.find("div.tags").html(tags);
-  }
-
-  show() {
-    if (!this.box.is(":visible")) {
-      this.box.fadeIn();
-    }
-  }
-
-  hide() {
-    if (this.box.is(":visible")) {
-      this.box.fadeOut();
-      this.target = null;
-    }
-  }
+  // Show the box
+  box.modal("show");
 }

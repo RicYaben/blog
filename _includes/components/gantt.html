@@ -1,5 +1,26 @@
 <div class="gantt"></div>
 
+<div
+  class="modal fade"
+  id="ganttModal"
+  tabindex="-1"
+  aria-hidden="true"
+  aria-labelledby="ganttModal">
+  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal-content box">
+      <div class="modal-header">
+        <div class="modal-title"></div>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"></button>
+      </div>
+      <div class="modal-body"></div>
+    </div>
+  </div>
+</div>
+
 <script
   src="https://cdnjs.cloudflare.com/ajax/libs/luxon/3.1.1/luxon.min.js"
   integrity="sha512-hZKz8wkgOcWeZanRioE6H6AC3OJspzJQyDBB5jLoZ1jIKbYDt5MwVIvU703WwE4sjvKZw9uNmmYlt29xKS27RA=="
@@ -8,24 +29,13 @@
 <script src="{{'assets/js/gantt.js' | relative_url }}"></script>
 <script>
   jQuery(function($) {
-    let box = new GanttBox()
 
     $(document).ready(function() {
       const data = {{ include.data | jsonify }};
 
       const ganttElement = $("div.gantt")
       const gantt = new Gantt(ganttElement, data, "{{ 'assets/images/' | relative_url }}")
-
-      gantt.element.on("scroll", function(event) {
-        box.hide()
-      });
-
-    }).on("click", function(event) {
-      const target = $("div.bar")
-      if (! target.is(event.target)) {
-        box.hide();
-      }
-    });
+    })
 
     $("div.gantt").on("click", "div.bar", function(event) {
       let el = $(event.currentTarget)
@@ -36,9 +46,7 @@
       let lane = section.lanes.find(lane => lane.id == el.attr("data-lane"))
       let bar = lane.bars.find(bar => bar.id == el.attr("data-bar"))
 
-      box.info(bar);
-      box.possition(el);
-      box.show();
+      showGanttBarModalInfo(bar);
     })
   })
 </script>
