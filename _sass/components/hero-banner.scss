@@ -12,16 +12,16 @@ div.hero-banner{
     @include breakpoint($medium-wide){
         flex-direction: row;
         height: 50vh;
-    }
-
-    div#hero-image{
-        display: flex;
-        align-self: center;
-        min-width: 50%;
-        justify-content: center;
 
         img{
             max-width: 30em;
+        }
+
+        div#hero-image{
+            display: flex;
+            align-self: center;
+            min-width: 50%;
+            justify-content: center;
         }
     }
 
